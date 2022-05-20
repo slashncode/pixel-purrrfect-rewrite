@@ -24,7 +24,7 @@ const MAX_VEL = 100
 const AIR_ACCEL = 10
 const JUMP_AGAIN_MARGIN = 0.2
 
-export var can_double_jump := false
+export var can_double_jump := true
 
 var velocity = Vector2.ZERO
 
