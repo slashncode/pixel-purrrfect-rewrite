@@ -10,6 +10,14 @@ export var GRAVITY = 600.0
 export var JUMP_IMPULSE := 300.0
 # Maximum gravity
 export var TERM_VEL := 250.0
+# How long player can grab walls
+export var WALLGRAB_TIMER := 120
+var INITIAl_WALLGRAB_TIMER = WALLGRAB_TIMER
+# Time for player to be able to grab walls again after letting go
+export var TIME_TO_WALLGRAB := 20
+# Time for player to do a normal jump after letting go of wall
+var WALLGRAB_TO_JUMP := 16
+var INITIAL_WALLGRAP_TO_JUMP = WALLGRAB_TO_JUMP
 
 const MAX_VEL = 100
 const AIR_ACCEL = 10
@@ -45,11 +53,17 @@ func _physics_process(_delta: float) -> void:
 		dir_cur = dir_nxt
 		scale.x *= -1
 		
-		
 	if velocity.x < 0:
 		dir_nxt = -1
 	elif velocity.x > 0:
 		dir_nxt = 1
+		
+	if is_on_floor():
+		WALLGRAB_TIMER = INITIAl_WALLGRAB_TIMER
+		
+	if !is_on_wall() && TIME_TO_WALLGRAB < 20:
+		TIME_TO_WALLGRAB += 1
+		
 		
 	#label.text = fsm.state.name
 	pass

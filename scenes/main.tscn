@@ -236,6 +236,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 4.95405, 0, 4.95405 )
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 1, 0 )
 tile_set = SubResource( 13 )
 cell_size = Vector2( 16, 16 )
 cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
@@ -248,7 +249,7 @@ scale = Vector2( 0.277778, 0.277778 )
 texture = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 464, -736 )
+position = Vector2( 314, -752 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true

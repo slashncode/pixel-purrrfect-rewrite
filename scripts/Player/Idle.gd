@@ -7,7 +7,6 @@ func enter(_msg := {}) -> void:
 	player.can_double_jump = true
 	player.anim_nxt = "Idle"
 
-
 func physics_update(_delta: float) -> void:
 	if blink_timer == 5:
 		player.anim_nxt = "IdleBlink"

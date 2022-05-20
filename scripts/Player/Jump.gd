@@ -27,7 +27,7 @@ func base_jump( delta ) -> bool:
 		Input.get_action_strength( "move_left" )
 	
 	var is_moving = ( abs( dir ) > 0.1 )
-	#print( is_moving )
+
 	if is_moving:
 		dir = sign( dir )
 		player.velocity.x = lerp( player.velocity.x, \
@@ -46,6 +46,9 @@ func base_jump( delta ) -> bool:
 		state_machine.transition_to("Fall")
 	elif player.velocity.y > 0:
 		state_machine.transition_to("Fall")
+		
+	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == 20:
+		state_machine.transition_to("Wallgrab")
 	
 	if player.is_on_floor():
 		player.can_double_jump = true

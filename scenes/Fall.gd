@@ -32,10 +32,18 @@ func physics_update(delta: float) -> void:
 	
 	player.velocity = player.move_and_slide( player.velocity, \
 			Vector2.UP )
+			
+	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == 20:
+		state_machine.transition_to("Wallgrab")
+		
+	player.WALLGRAB_TO_JUMP -= 1
 	
 	# double jump or set jump-after-landing-timer and boolean
 	if Input.is_action_just_pressed( "move_up" ):
-		if player.can_double_jump:
+		if player.WALLGRAB_TO_JUMP >= 1:
+			player.WALLGRAB_TO_JUMP == 0
+			state_machine.transition_to("Jump")
+		elif player.can_double_jump:
 			state_machine.transition_to("DoubleJump")
 		else:
 			# jump immediately after landing
