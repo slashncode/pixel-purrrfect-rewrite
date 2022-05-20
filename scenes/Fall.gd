@@ -39,7 +39,7 @@ func physics_update(delta: float) -> void:
 	player.WALLGRAB_TO_JUMP -= 1
 	
 	# double jump or set jump-after-landing-timer and boolean
-	if Input.is_action_just_pressed( "move_up" ):
+	if Input.is_action_just_pressed( "jump" ):
 		if player.WALLGRAB_TO_JUMP >= 1 && player.JUMPED_FROM_WALL:
 			player.WALLGRAB_TO_JUMP = 0
 			player.JUMPED_FROM_WALL = false

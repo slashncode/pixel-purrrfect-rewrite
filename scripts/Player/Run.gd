@@ -19,7 +19,7 @@ func physics_update(delta: float) -> void:
 		
 	player.anim_nxt = "Run"
 
-	if Input.is_action_just_pressed("move_up"):
+	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")
 		
 	elif is_equal_approx(input_direction_x, 0.0):

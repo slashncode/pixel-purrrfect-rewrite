@@ -1,15 +1,21 @@
 extends PlayerState
 
-var blink_timer = 0
-var sit_timer = 0
+var blink_timer
+var sit_timer
 
 func enter(_msg := {}) -> void:
+	blink_timer = 0
+	sit_timer = 0
 	player.can_double_jump = true
 	player.anim_nxt = "Idle"
+	pass
 
 func physics_update(_delta: float) -> void:
 	if blink_timer == 5:
 		player.anim_nxt = "IdleBlink"
+		
+	if sit_timer == 16:
+		state_machine.transition_to("Sit")
 	
 	if not player.is_on_floor():
 		state_machine.transition_to("Fall")
@@ -20,7 +26,7 @@ func physics_update(_delta: float) -> void:
 			Input.is_action_pressed( "move_right" ):
 				state_machine.transition_to("Run")
 
-	if Input.is_action_just_pressed("move_up"):
+	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")
 
 
@@ -30,4 +36,6 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		player.anim_nxt = "Idle"
 	elif anim_name == "Idle":
 		blink_timer += 1
-	pass # Replace with function body.
+		sit_timer += 1
+		
+	pass

@@ -14,7 +14,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.GRAVITY * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
-	if Input.is_action_just_pressed("move_up"):
+	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")
 
 
@@ -24,4 +24,4 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		
 	elif anim_name == "Landing":
 		state_machine.transition_to("Idle")
-	pass # Replace with function body.
+	pass

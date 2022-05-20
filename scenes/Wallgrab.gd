@@ -6,8 +6,9 @@ func enter(_msg := {}) -> void:
 	player.JUMPED_FROM_WALL = true
 	player.velocity.y = 0
 	player.anim_nxt = "Wallgrab"
+	pass
 
-func physics_update(delta: float) -> void:
+func physics_update(_delta: float) -> void:
 	var input_direction_x: float = (
 		Input.get_action_strength("move_right")
 		- Input.get_action_strength("move_left")

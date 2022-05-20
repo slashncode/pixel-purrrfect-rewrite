@@ -3,6 +3,7 @@ extends PlayerState
 
 func enter(_msg := {}) -> void:
 	player.anim_nxt = "Wallclimb"
+	pass
 
 func physics_update(_delta: float) -> void:
 	var input_direction_x: float = (

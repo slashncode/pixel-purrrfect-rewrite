@@ -10,7 +10,7 @@ func enter(_msg := {}) -> void:
 func physics_update(delta: float) -> void:
 	if base_jump( delta ):
 		return
-	if Input.is_action_just_pressed( "move_up" ) and \
+	if Input.is_action_just_pressed( "jump" ) and \
 		player.can_double_jump:
 			state_machine.transition_to("DoubleJump")
 			return
@@ -19,7 +19,7 @@ func base_jump( delta ) -> bool:
 	player.velocity.y = min( player.TERM_VEL, player.velocity.y + player.GRAVITY * delta )
 	if keypress_timer >= 0:
 		keypress_timer -= delta
-		if keypress_timer < 0 or Input.is_action_just_released( "move_up" ):
+		if keypress_timer < 0 or Input.is_action_just_released( "jump" ):
 			keypress_timer = -1.0
 			player.velocity.y *= 0.2
 	

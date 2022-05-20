@@ -46,6 +46,17 @@ func _physics_process(_delta: float) -> void:
 	if anim_cur == "Idle" and anim_nxt == "Idle":
 		$AnimationPlayer.play("Idle")
 	
+	if anim_cur == "IdleSit" and anim_nxt == "IdleSit":
+		$AnimationPlayer.play("IdleSit")
+		
+	if anim_cur != "IdleLiedown" && $Camera2D.zoom.x != 0.5:
+		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 0.5, 0.05)
+		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 0.5, 0.05)
+	elif anim_cur == "IdleLiedown":
+		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 0.2, 0.01)
+		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 0.2, 0.01)
+		
+	
 	if anim_cur != anim_nxt:
 		anim_cur = anim_nxt
 		$AnimationPlayer.play( anim_cur )
