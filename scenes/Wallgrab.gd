@@ -3,6 +3,7 @@ extends PlayerState
 
 func enter(_msg := {}) -> void:
 	player.WALLGRAB_TO_JUMP = player.INITIAL_WALLGRAP_TO_JUMP
+	player.JUMPED_FROM_WALL = true
 	player.velocity.y = 0
 	player.anim_nxt = "Wallgrab"
 
