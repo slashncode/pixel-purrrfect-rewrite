@@ -89,8 +89,19 @@ func _physics_process(_delta: float) -> void:
 	elif MAX_SPEED != INITIAL_MAX_SPEED:
 		MAX_SPEED = INITIAL_MAX_SPEED
 		MAX_SPEED_MIDAIR = INITIAL_MAX_SPEED_MIDAIR
-		
+	
+	# Set max horizontal speed depending on action strength (if controller stick isn't pushed all the way to the left/right)
+	var input_direction_x: float = (
+		Input.get_action_strength("move_right")
+		- Input.get_action_strength("move_left")
+	)
+	if !is_equal_approx(input_direction_x, 0.0):
+		MAX_SPEED *= abs(input_direction_x)
+		MAX_SPEED_MIDAIR *= abs(input_direction_x)
+	
+	# Set max horizontal speed
 	velocity.x = clamp(velocity.x,-MAX_SPEED, MAX_SPEED)
+
 		
 	if is_on_floor():
 		WALLGRAB_TIMER = INITIAl_WALLGRAB_TIMER

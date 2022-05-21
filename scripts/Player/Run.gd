@@ -21,6 +21,7 @@ func physics_update(delta: float) -> void:
 	player.velocity.y += player.GRAVITY * delta
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 
+
 	if Input.is_action_just_pressed("jump"):
 		state_machine.transition_to("Jump")
 		
