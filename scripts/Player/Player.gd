@@ -6,26 +6,29 @@ extends KinematicBody2D
 export var ACCEL := 10
 # Max horizontal speed in pixels per second.
 export var MAX_SPEED := 110.0
+var INITIAL_MAX_SPEED := MAX_SPEED
 # Vertical acceleration in pixel per second squared.
 export var GRAVITY := 600.0
+# Maximum gravity
+export var MAX_GRAVITY := 250.0
 # Vertical speed applied when jumping.
 export var JUMP_IMPULSE := 300.0
-# Maximum gravity
-export var TERM_VEL := 250.0
 # How long player can grab walls
 export var WALLGRAB_TIMER := 120
 var INITIAl_WALLGRAB_TIMER := WALLGRAB_TIMER
 # Time for player to be able to grab walls again after letting go
-export var TIME_TO_WALLGRAB := 20
+var TIME_TO_WALLGRAB := 25
+var INITIAL_TIME_TO_WALLGRAB = TIME_TO_WALLGRAB
 # Time for player to do a normal jump after letting go of wall
 var JUMPED_FROM_WALL := false
 var WALLGRAB_TO_JUMP := 16
 var INITIAL_WALLGRAP_TO_JUMP := WALLGRAB_TO_JUMP
 
-# Max horizontal speed mid-air in pixels per second
-var MAX_SPEED_MIDAIR := 110
 # Horizontal speed acceleration mid-air in pixels per second
-var AIR_ACCEL := 5
+export var AIR_ACCEL := 5
+# Max horizontal speed mid-air in pixels per second
+export var MAX_SPEED_MIDAIR := 110
+var INITIAL_MAX_SPEED_MIDAIR := MAX_SPEED_MIDAIR
 # Time for player to press jump before landing to immediately jump again in seconds
 var JUMP_AGAIN_AFTER_LANDING := 0.2
 # Time for player to jump after running of an edge
@@ -33,7 +36,7 @@ var FALL_AFTER_RUNNING := false
 var JUMP_AFTER_FALLING := 16
 var INITIAL_JUMP_AFTER_FALLING := JUMP_AFTER_FALLING
 
-export var can_double_jump := true
+var can_double_jump := true
 
 var velocity = Vector2.ZERO
 
@@ -49,6 +52,7 @@ var invulnerable_timer := 0.0
 
 onready var fsm := $StateMachine
 
+var lastTimeToWallgrab = TIME_TO_WALLGRAB
 
 func _physics_process(_delta: float) -> void:
 	
@@ -59,8 +63,8 @@ func _physics_process(_delta: float) -> void:
 		$AnimationPlayer.play("IdleSit")
 		
 	if anim_cur != "IdleLiedown" && $Camera2D.zoom.x != 0.5:
-		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 0.5, 0.05)
-		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 0.5, 0.05)
+		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 1, 0.05)
+		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 1, 0.05)
 	elif anim_cur == "IdleLiedown":
 		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 0.2, 0.01)
 		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 0.2, 0.01)
@@ -79,6 +83,13 @@ func _physics_process(_delta: float) -> void:
 	elif velocity.x > 0:
 		dir_nxt = 1
 		
+	if Input.is_action_pressed("Run"):
+		MAX_SPEED = INITIAL_MAX_SPEED + 40
+		MAX_SPEED_MIDAIR = INITIAL_MAX_SPEED_MIDAIR + 40
+	elif MAX_SPEED != INITIAL_MAX_SPEED:
+		MAX_SPEED = INITIAL_MAX_SPEED
+		MAX_SPEED_MIDAIR = INITIAL_MAX_SPEED_MIDAIR
+		
 	velocity.x = clamp(velocity.x,-MAX_SPEED, MAX_SPEED)
 		
 	if is_on_floor():
@@ -88,7 +99,12 @@ func _physics_process(_delta: float) -> void:
 		JUMP_AFTER_FALLING = INITIAL_JUMP_AFTER_FALLING
 		FALL_AFTER_RUNNING = false
 		
-	if !is_on_wall() && TIME_TO_WALLGRAB < 20:
+	
+		
+	if lastTimeToWallgrab != TIME_TO_WALLGRAB:
+		print(TIME_TO_WALLGRAB)
+		
+	if fsm.state.name != "Wallgrab" && fsm.state.name != "Wallclimb" && TIME_TO_WALLGRAB < INITIAL_TIME_TO_WALLGRAB:
 		TIME_TO_WALLGRAB += 1
 		
 		

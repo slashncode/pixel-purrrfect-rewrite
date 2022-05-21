@@ -18,9 +18,14 @@ func physics_update(_delta: float) -> void:
 	
 	if Input.is_action_pressed("move_up"):
 		state_machine.transition_to("Wallclimb")
+		
+	if Input.is_action_just_pressed("jump"):
+		player.TIME_TO_WALLGRAB = 0
+		player.JUMPED_FROM_WALL = false
+		state_machine.transition_to("Jump")
 	
 	if !player.is_on_wall() || player.WALLGRAB_TIMER <= 0:
-		player.TIME_TO_WALLGRAB = player.INITIAL_WALLGRAP_TO_JUMP
+		player.TIME_TO_WALLGRAB = 0
 		state_machine.transition_to("Fall")
 		
 	player.WALLGRAB_TIMER -= 1

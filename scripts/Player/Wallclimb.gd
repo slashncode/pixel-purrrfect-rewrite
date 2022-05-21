@@ -23,6 +23,11 @@ func physics_update(_delta: float) -> void:
 		player.velocity.y = -50
 	else:
 		state_machine.transition_to("Wallgrab")
+		
+	if Input.is_action_just_pressed("jump"):
+		player.TIME_TO_WALLGRAB = 0
+		player.JUMPED_FROM_WALL = false
+		state_machine.transition_to("Jump")
 	
 	player.WALLGRAB_TIMER -= 1
 		

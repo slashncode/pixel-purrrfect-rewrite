@@ -6,7 +6,7 @@ func enter(_msg := {}) -> void:
 	player.velocity.y = -player.JUMP_IMPULSE
 	keypress_timer = 0.2
 	player.anim_nxt = "Jump"
-
+		
 func physics_update(delta: float) -> void:
 	if base_jump( delta ):
 		return
@@ -16,7 +16,7 @@ func physics_update(delta: float) -> void:
 			return
 
 func base_jump( delta ) -> bool:
-	player.velocity.y = min( player.TERM_VEL, player.velocity.y + player.GRAVITY * delta )
+	player.velocity.y = min( player.MAX_GRAVITY, player.velocity.y + player.GRAVITY * delta )
 	if keypress_timer >= 0:
 		keypress_timer -= delta
 		if keypress_timer < 0 or Input.is_action_just_released( "jump" ):
@@ -47,7 +47,7 @@ func base_jump( delta ) -> bool:
 	elif player.velocity.y > 0:
 		state_machine.transition_to("Fall")
 		
-	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == 20:
+	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == player.INITIAL_TIME_TO_WALLGRAB:
 		state_machine.transition_to("Wallgrab")
 	
 	if player.is_on_floor():

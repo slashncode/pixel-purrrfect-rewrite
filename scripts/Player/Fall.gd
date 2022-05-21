@@ -13,7 +13,7 @@ func physics_update(delta: float) -> void:
 	jump_timer -= delta
 	
 	# gravity
-	player.velocity.y = min( player.TERM_VEL, player.velocity.y + player.GRAVITY * delta )
+	player.velocity.y = min( player.MAX_GRAVITY, player.velocity.y + player.GRAVITY * delta )
 	
 	# movement in air
 	var dir = Input.get_action_strength( "move_right" ) - \
@@ -33,7 +33,7 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide( player.velocity, \
 			Vector2.UP )
 			
-	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == 20:
+	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == player.INITIAL_TIME_TO_WALLGRAB:
 		state_machine.transition_to("Wallgrab")
 		
 	player.WALLGRAB_TO_JUMP -= 1
