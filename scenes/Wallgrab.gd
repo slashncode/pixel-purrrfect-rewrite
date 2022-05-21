@@ -13,7 +13,7 @@ func physics_update(_delta: float) -> void:
 		Input.get_action_strength("move_right")
 		- Input.get_action_strength("move_left")
 	)
-	player.velocity.x = player.SPEED * input_direction_x
+	player.velocity.x = player.MAX_SPEED * input_direction_x
 	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
 	
 	if Input.is_action_pressed("move_up"):

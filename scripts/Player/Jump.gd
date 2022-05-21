@@ -31,7 +31,7 @@ func base_jump( delta ) -> bool:
 	if is_moving:
 		dir = sign( dir )
 		player.velocity.x = lerp( player.velocity.x, \
-			player.MAX_VEL * dir, \
+			player.MAX_SPEED_MIDAIR * dir, \
 			player.AIR_ACCEL * delta )
 		player.dir_nxt = dir
 	else:

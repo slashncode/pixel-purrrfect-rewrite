@@ -2,8 +2,10 @@
 class_name Player
 extends KinematicBody2D
 
-# Horizontal speed in pixels per second.
-export var SPEED := 100.0
+# Horizontal speed acceleration in pixels per second
+export var ACCEL := 10
+# Max horizontal speed in pixels per second.
+export var MAX_SPEED := 110.0
 # Vertical acceleration in pixel per second squared.
 export var GRAVITY := 600.0
 # Vertical speed applied when jumping.
@@ -20,9 +22,16 @@ var JUMPED_FROM_WALL := false
 var WALLGRAB_TO_JUMP := 16
 var INITIAL_WALLGRAP_TO_JUMP := WALLGRAB_TO_JUMP
 
-const MAX_VEL = 100
-const AIR_ACCEL = 10
-const JUMP_AGAIN_MARGIN = 0.2
+# Max horizontal speed mid-air in pixels per second
+var MAX_SPEED_MIDAIR := 110
+# Horizontal speed acceleration mid-air in pixels per second
+var AIR_ACCEL := 5
+# Time for player to press jump before landing to immediately jump again in seconds
+var JUMP_AGAIN_AFTER_LANDING := 0.2
+# Time for player to jump after running of an edge
+var FALL_AFTER_RUNNING := false
+var JUMP_AFTER_FALLING := 16
+var INITIAL_JUMP_AFTER_FALLING := JUMP_AFTER_FALLING
 
 export var can_double_jump := true
 
@@ -70,9 +79,14 @@ func _physics_process(_delta: float) -> void:
 	elif velocity.x > 0:
 		dir_nxt = 1
 		
+	velocity.x = clamp(velocity.x,-MAX_SPEED, MAX_SPEED)
+		
 	if is_on_floor():
 		WALLGRAB_TIMER = INITIAl_WALLGRAB_TIMER
 		JUMPED_FROM_WALL = false
+		
+		JUMP_AFTER_FALLING = INITIAL_JUMP_AFTER_FALLING
+		FALL_AFTER_RUNNING = false
 		
 	if !is_on_wall() && TIME_TO_WALLGRAB < 20:
 		TIME_TO_WALLGRAB += 1

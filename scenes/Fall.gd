@@ -23,7 +23,7 @@ func physics_update(delta: float) -> void:
 	if is_moving:
 		dir = sign( dir )
 		player.velocity.x = lerp( player.velocity.x, \
-			player.MAX_VEL * dir, \
+			player.MAX_SPEED_MIDAIR * dir, \
 			player.AIR_ACCEL * delta )
 		player.dir_nxt = dir
 	else:
@@ -37,6 +37,7 @@ func physics_update(delta: float) -> void:
 		state_machine.transition_to("Wallgrab")
 		
 	player.WALLGRAB_TO_JUMP -= 1
+	player.JUMP_AFTER_FALLING -= 1
 	
 	# double jump or set jump-after-landing-timer and boolean
 	if Input.is_action_just_pressed( "jump" ):
@@ -44,11 +45,15 @@ func physics_update(delta: float) -> void:
 			player.WALLGRAB_TO_JUMP = 0
 			player.JUMPED_FROM_WALL = false
 			state_machine.transition_to("Jump")
+		elif player.FALL_AFTER_RUNNING && player.JUMP_AFTER_FALLING > 0:
+			player.JUMP_AFTER_FALLING = 0
+			player.FALL_AFTER_RUNNING = false
+			state_machine.transition_to("Jump")
 		elif player.can_double_jump:
 			state_machine.transition_to("DoubleJump")
 		else:
 			# jump immediately after landing
-			jump_timer = player.JUMP_AGAIN_MARGIN
+			jump_timer = player.JUMP_AGAIN_AFTER_LANDING
 			jump_again = true
 
 	# landing
