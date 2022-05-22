@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/fishy.png-46d91a0549ae42185b4c7511043734f1.stex"
+path="res://.import/m5x7_0.png-8951e4af6dbbf4c79ef54653606ddec5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/objects/fishy.png"
-dest_files=[ "res://.import/fishy.png-46d91a0549ae42185b4c7511043734f1.stex" ]
+source_file="res://assets/fonts/m5x7_0.png"
+dest_files=[ "res://.import/m5x7_0.png-8951e4af6dbbf4c79ef54653606ddec5.stex" ]
 
 [params]
 

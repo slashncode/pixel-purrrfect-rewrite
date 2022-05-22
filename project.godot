@@ -39,18 +39,21 @@ _global_script_class_icons={
 [application]
 
 config/name="State Machine Test"
-run/main_scene="res://scenes/Level01.tscn"
+run/main_scene="res://scenes/Levels/Level01.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://autoloads/Events.gd"
 
 [display]
 
-window/size/width=1440
-window/size/height=810
+window/size/width=480
+window/size/height=270
 window/size/test_width=960
 window/size/test_height=560
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
-window/stretch/shrink=3.0
 
 [gdnative]
 
