@@ -13,5 +13,4 @@ func _on_Coin_body_entered(_body: Node) -> void:
 
 
 func _on_AudioStreamPlayer2D_finished() -> void:
-	print("played sound")
 	queue_free()

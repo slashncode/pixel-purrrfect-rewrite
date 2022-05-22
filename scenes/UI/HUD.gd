@@ -8,6 +8,7 @@ func _ready() -> void:
 	label.text = str(score)
 
 func _enter_tree() -> void:
+	# warning-ignore:return_value_discarded
 	Events.connect("score_changed", self, "_on_score_changed")
 
 func _exit_tree() -> void:

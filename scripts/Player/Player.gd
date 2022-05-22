@@ -96,6 +96,7 @@ func _physics_process(_delta: float) -> void:
 		- Input.get_action_strength("move_left")
 	)
 	if !is_equal_approx(input_direction_x, 0.0):
+		# warning-ignore:narrowing_conversion
 		MAX_SPEED *= abs(input_direction_x)
 		MAX_SPEED_MIDAIR *= abs(input_direction_x)
 	
