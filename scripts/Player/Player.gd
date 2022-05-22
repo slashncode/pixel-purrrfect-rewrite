@@ -104,16 +104,15 @@ func _physics_process(_delta: float) -> void:
 
 		
 	if is_on_floor():
-		WALLGRAB_TIMER = INITIAl_WALLGRAB_TIMER
+		if WALLGRAB_TIMER < INITIAl_WALLGRAB_TIMER:
+			WALLGRAB_TIMER += 1
+			Events.emit_signal("stamina_changed", WALLGRAB_TIMER)
+			
 		JUMPED_FROM_WALL = false
 		
 		JUMP_AFTER_FALLING = INITIAL_JUMP_AFTER_FALLING
 		FALL_AFTER_RUNNING = false
-		
-	
-		
-	if lastTimeToWallgrab != TIME_TO_WALLGRAB:
-		print(TIME_TO_WALLGRAB)
+
 		
 	if fsm.state.name != "Wallgrab" && fsm.state.name != "Wallclimb" && TIME_TO_WALLGRAB < INITIAL_TIME_TO_WALLGRAB:
 		TIME_TO_WALLGRAB += 1
