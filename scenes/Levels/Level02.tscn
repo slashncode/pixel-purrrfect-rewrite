@@ -270,30 +270,33 @@ tile_data = PoolIntArray( 393251, 0, 0, 393252, 0, 2, 393255, 0, 0, 393256, 0, 2
 tile_set = SubResource( 17 )
 cell_size = Vector2( 24, 24 )
 format = 1
-tile_data = PoolIntArray( 1114144, 0, 0, 1114145, 0, 0 )
+tile_data = PoolIntArray( 983077, 0, 0, 983080, 0, 0, 1114144, 0, 0, 1114147, 0, 0, 1114154, 0, 0 )
 
 [node name="TileSpawner" type="Node2D" parent="."]
 script = ExtResource( 6 )
 source_tilemap = NodePath("../Objects")
 mapping = "res://pickups/objects.json"
-spawn_at_runtime = true
 
 [node name="Coin" parent="TileSpawner" instance=ExtResource( 2 )]
-position = Vector2( 780, 420 )
+position = Vector2( 900, 372 )
 
 [node name="Coin2" parent="TileSpawner" instance=ExtResource( 2 )]
-position = Vector2( 804, 420 )
+position = Vector2( 972, 372 )
+
+[node name="Coin3" parent="TileSpawner" instance=ExtResource( 2 )]
+position = Vector2( 780, 420 )
+
+[node name="Coin4" parent="TileSpawner" instance=ExtResource( 2 )]
+position = Vector2( 852, 420 )
+
+[node name="Coin5" parent="TileSpawner" instance=ExtResource( 2 )]
+position = Vector2( 1020, 420 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 720, 408 )
+WALLGRAB_TIMER = 360
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 process_mode = 0
 smoothing_enabled = true
-
-[node name="Coin" parent="." instance=ExtResource( 2 )]
-position = Vector2( 856, 417 )
-
-[node name="Coin2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 873, 392 )

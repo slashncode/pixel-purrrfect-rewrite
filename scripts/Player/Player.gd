@@ -15,7 +15,7 @@ export var MAX_GRAVITY := 250.0
 export var JUMP_IMPULSE := 300.0
 # How long player can grab walls
 export var WALLGRAB_TIMER := 120
-var INITIAl_WALLGRAB_TIMER := WALLGRAB_TIMER
+onready var INITIAl_WALLGRAB_TIMER := WALLGRAB_TIMER
 # Time for player to be able to grab walls again after letting go
 var TIME_TO_WALLGRAB := 25
 var INITIAL_TIME_TO_WALLGRAB = TIME_TO_WALLGRAB

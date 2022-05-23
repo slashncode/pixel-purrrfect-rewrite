@@ -19,7 +19,7 @@ func _exit_tree() -> void:
 
 func _on_score_changed(value):
 	if player.WALLGRAB_TIMER != 0:
-		stamina = floor(float(value) / 120 * 100)
+		stamina = floor(float(value) / MAX_STAMINA * 100)
 		
 	elif player.WALLGRAB_TIMER == 0:
 		stamina = 0
