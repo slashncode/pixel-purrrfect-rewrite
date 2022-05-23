@@ -55,6 +55,10 @@ window/size/test_height=560
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/tile_spawner/plugin.cfg" )
+
 [gdnative]
 
 singletons=[  ]
