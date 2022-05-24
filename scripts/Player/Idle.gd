@@ -10,7 +10,13 @@ func enter(_msg := {}) -> void:
 	player.anim_nxt = "Idle"
 	pass
 
-func physics_update(_delta: float) -> void:
+func physics_update(delta: float) -> void:
+	
+	# Last value determines how fast the player stops moving after letting go of movement
+	player.velocity.x = lerp(player.velocity.x,0,0.2)
+	player.velocity.y += player.GRAVITY * delta
+	player.velocity = player.move_and_slide(player.velocity, Vector2.UP)
+	
 	if blink_timer == 5:
 		player.anim_nxt = "IdleBlink"
 		

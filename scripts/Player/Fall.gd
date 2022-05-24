@@ -13,7 +13,7 @@ func physics_update(delta: float) -> void:
 	jump_timer -= delta
 	
 	# gravity
-	player.velocity.y = min( player.TERM_VEL, player.velocity.y + player.GRAVITY * delta )
+	player.velocity.y = min( player.MAX_GRAVITY, player.velocity.y + player.GRAVITY * delta )
 	
 	# movement in air
 	var dir = Input.get_action_strength( "move_right" ) - \
@@ -23,7 +23,7 @@ func physics_update(delta: float) -> void:
 	if is_moving:
 		dir = sign( dir )
 		player.velocity.x = lerp( player.velocity.x, \
-			player.MAX_VEL * dir, \
+			player.MAX_SPEED_MIDAIR * dir, \
 			player.AIR_ACCEL * delta )
 		player.dir_nxt = dir
 	else:
@@ -33,10 +33,11 @@ func physics_update(delta: float) -> void:
 	player.velocity = player.move_and_slide( player.velocity, \
 			Vector2.UP )
 			
-	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == 20:
+	if player.is_on_wall() && player.WALLGRAB_TIMER >= 0 && player.TIME_TO_WALLGRAB == player.INITIAL_TIME_TO_WALLGRAB:
 		state_machine.transition_to("Wallgrab")
 		
 	player.WALLGRAB_TO_JUMP -= 1
+	player.JUMP_AFTER_FALLING -= 1
 	
 	# double jump or set jump-after-landing-timer and boolean
 	if Input.is_action_just_pressed( "jump" ):
@@ -44,11 +45,15 @@ func physics_update(delta: float) -> void:
 			player.WALLGRAB_TO_JUMP = 0
 			player.JUMPED_FROM_WALL = false
 			state_machine.transition_to("Jump")
+		elif player.FALL_AFTER_RUNNING && player.JUMP_AFTER_FALLING > 0:
+			player.JUMP_AFTER_FALLING = 0
+			player.FALL_AFTER_RUNNING = false
+			state_machine.transition_to("Jump")
 		elif player.can_double_jump:
 			state_machine.transition_to("DoubleJump")
 		else:
 			# jump immediately after landing
-			jump_timer = player.JUMP_AGAIN_MARGIN
+			jump_timer = player.JUMP_AGAIN_AFTER_LANDING
 			jump_again = true
 
 	# landing
