@@ -1,5 +1,8 @@
 {
     "fishy": {
-         "scene": "res://pickups/Coin.tscn"
+        "scene": "res://pickups/Coin.tscn"
+    },
+    "tuna": {
+        "scene": "res://pickups/Tuna.tscn"
     }
 }

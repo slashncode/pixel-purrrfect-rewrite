@@ -5,14 +5,15 @@ extends KinematicBody2D
 # Horizontal speed acceleration in pixels per second
 export var ACCEL := 10
 # Max horizontal speed in pixels per second.
-export var MAX_SPEED := 110.0
+export var MAX_SPEED := 170.0
 var INITIAL_MAX_SPEED := MAX_SPEED
+export var RUN_SPEED := 60
 # Vertical acceleration in pixel per second squared.
 export var GRAVITY := 600.0
 # Maximum gravity
-export var MAX_GRAVITY := 250.0
+export var MAX_GRAVITY := 350.0
 # Vertical speed applied when jumping.
-export var JUMP_IMPULSE := 300.0
+export var JUMP_IMPULSE := 400.0
 # How long player can grab walls
 export var WALLGRAB_TIMER := 120
 onready var INITIAl_WALLGRAB_TIMER := WALLGRAB_TIMER
@@ -84,8 +85,8 @@ func _physics_process(_delta: float) -> void:
 		dir_nxt = 1
 		
 	if Input.is_action_pressed("Run"):
-		MAX_SPEED = INITIAL_MAX_SPEED + 40
-		MAX_SPEED_MIDAIR = INITIAL_MAX_SPEED_MIDAIR + 40
+		MAX_SPEED = INITIAL_MAX_SPEED + RUN_SPEED
+		MAX_SPEED_MIDAIR = INITIAL_MAX_SPEED_MIDAIR + RUN_SPEED
 	elif MAX_SPEED != INITIAL_MAX_SPEED:
 		MAX_SPEED = INITIAL_MAX_SPEED
 		MAX_SPEED_MIDAIR = INITIAL_MAX_SPEED_MIDAIR
