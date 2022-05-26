@@ -1,30 +1,30 @@
 [gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://scripts/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://scripts/Player/Idle.gd" type="Script" id=2]
-[ext_resource path="res://assets/player/skin01/cat01_run_strip4.png" type="Texture" id=3]
-[ext_resource path="res://assets/player/skin01/cat01_idle_strip8.png" type="Texture" id=4]
-[ext_resource path="res://scripts/StateMachine.gd" type="Script" id=5]
-[ext_resource path="res://scripts/Player/Run.gd" type="Script" id=6]
+[ext_resource path="res://scripts/StateMachine.gd" type="Script" id=1]
+[ext_resource path="res://assets/player/stamina_full.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Player/Idle.gd" type="Script" id=3]
+[ext_resource path="res://scripts/Player/Run.gd" type="Script" id=4]
+[ext_resource path="res://assets/player/skin01/cat01_attack_strip7.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Player/Wallgrab.gd" type="Script" id=6]
 [ext_resource path="res://scripts/Player/Jump.gd" type="Script" id=7]
 [ext_resource path="res://scripts/Player/DoubleJump.gd" type="Script" id=8]
 [ext_resource path="res://assets/player/skin01/cat01_fall_strip3.png" type="Texture" id=9]
-[ext_resource path="res://scripts/Player/Fall.gd" type="Script" id=10]
-[ext_resource path="res://assets/player/skin01/cat01_jump_strip4.png" type="Texture" id=11]
-[ext_resource path="res://assets/player/skin01/cat01_idle_blink_strip8.png" type="Texture" id=12]
-[ext_resource path="res://assets/player/skin01/cat01_sit_strip8.png" type="Texture" id=13]
-[ext_resource path="res://assets/player/skin01/cat01_land_strip2.png" type="Texture" id=14]
-[ext_resource path="res://scripts/Player/Landing.gd" type="Script" id=15]
-[ext_resource path="res://assets/player/skin01/cat01_wallgrab_strip8.png" type="Texture" id=16]
-[ext_resource path="res://assets/player/skin01/cat01_wallclimb_strip8.png" type="Texture" id=17]
+[ext_resource path="res://assets/player/skin01/cat01_jump_strip4.png" type="Texture" id=10]
+[ext_resource path="res://assets/player/skin01/cat01_idle_blink_strip8.png" type="Texture" id=11]
+[ext_resource path="res://assets/player/skin01/cat01_sit_strip8.png" type="Texture" id=12]
+[ext_resource path="res://assets/player/skin01/cat01_land_strip2.png" type="Texture" id=13]
+[ext_resource path="res://assets/player/skin01/cat01_wallgrab_strip8.png" type="Texture" id=14]
+[ext_resource path="res://assets/player/skin01/cat01_wallclimb_strip8.png" type="Texture" id=15]
+[ext_resource path="res://assets/player/skin01/cat01_liedown_strip24.png" type="Texture" id=16]
+[ext_resource path="res://assets/player/stamina_empty.png" type="Texture" id=17]
 [ext_resource path="res://scripts/Player/Wallclimb.gd" type="Script" id=18]
-[ext_resource path="res://scripts/Player/Wallgrab.gd" type="Script" id=19]
-[ext_resource path="res://scripts/Player/Sit.gd" type="Script" id=20]
-[ext_resource path="res://assets/player/skin01/cat01_liedown_strip24.png" type="Texture" id=21]
-[ext_resource path="res://assets/player/stamina_full.png" type="Texture" id=22]
-[ext_resource path="res://assets/player/stamina_empty.png" type="Texture" id=23]
-[ext_resource path="res://scenes/Stamina.gd" type="Script" id=24]
-[ext_resource path="res://assets/player/skin01/cat01_attack_strip7.png" type="Texture" id=25]
+[ext_resource path="res://assets/player/skin01/cat01_run_strip4.png" type="Texture" id=19]
+[ext_resource path="res://assets/player/skin01/cat01_idle_strip8.png" type="Texture" id=20]
+[ext_resource path="res://scenes/Player/Stamina.gd" type="Script" id=21]
+[ext_resource path="res://scripts/Player/Fall.gd" type="Script" id=22]
+[ext_resource path="res://scripts/Player/Player.gd" type="Script" id=23]
+[ext_resource path="res://scripts/Player/Landing.gd" type="Script" id=24]
+[ext_resource path="res://scripts/Player/Sit.gd" type="Script" id=25]
 
 [sub_resource type="Animation" id=19]
 resource_name = "Attack"
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 25 ) ]
+"values": [ ExtResource( 5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -203,7 +203,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 20 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("CollisionShape2D:position")
@@ -255,7 +255,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 12 ) ]
+"values": [ ExtResource( 11 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -332,7 +332,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 21 ) ]
+"values": [ ExtResource( 16 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -408,7 +408,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 13 ) ]
+"values": [ ExtResource( 12 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -497,7 +497,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 11 ) ]
+"values": [ ExtResource( 10 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("player:frame")
@@ -562,7 +562,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 14 ) ]
+"values": [ ExtResource( 13 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -661,7 +661,7 @@ tracks/2/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 4 ) ]
+"values": [ ExtResource( 20 ) ]
 }
 tracks/3/type = "value"
 tracks/3/path = NodePath("player:frame_coords")
@@ -750,7 +750,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 3 ) ]
+"values": [ ExtResource( 19 ) ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("player:frame")
@@ -815,7 +815,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 17 ) ]
+"values": [ ExtResource( 15 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -892,7 +892,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ ExtResource( 16 ) ]
+"values": [ ExtResource( 14 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("player:hframes")
@@ -960,7 +960,7 @@ extents = Vector2( 9.5, 8.5 )
 
 [node name="Player" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
-script = ExtResource( 1 )
+script = ExtResource( 23 )
 
 [node name="Stamina" type="Control" parent="."]
 margin_left = -15.0
@@ -968,19 +968,19 @@ margin_top = -8.0
 margin_right = 1.0
 margin_bottom = 8.0
 rect_scale = Vector2( 0.5, 0.5 )
-script = ExtResource( 24 )
+script = ExtResource( 21 )
 
 [node name="TextureProgress" type="TextureProgress" parent="Stamina"]
 margin_right = 16.0
 margin_bottom = 16.0
 value = 100.0
-texture_under = ExtResource( 23 )
-texture_progress = ExtResource( 22 )
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 2 )
 fill_mode = 5
 
 [node name="player" type="Sprite" parent="."]
 position = Vector2( 1, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 20 )
 hframes = 8
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -1002,14 +1002,14 @@ position = Vector2( -2.5, 4.5 )
 shape = SubResource( 6 )
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="Run" type="Node" parent="StateMachine"]
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 
 [node name="Jump" type="Node" parent="StateMachine"]
 script = ExtResource( 7 )
@@ -1018,19 +1018,19 @@ script = ExtResource( 7 )
 script = ExtResource( 8 )
 
 [node name="Fall" type="Node" parent="StateMachine"]
-script = ExtResource( 10 )
+script = ExtResource( 22 )
 
 [node name="Landing" type="Node" parent="StateMachine"]
-script = ExtResource( 15 )
+script = ExtResource( 24 )
 
 [node name="Wallgrab" type="Node" parent="StateMachine"]
-script = ExtResource( 19 )
+script = ExtResource( 6 )
 
 [node name="Wallclimb" type="Node" parent="StateMachine"]
 script = ExtResource( 18 )
 
 [node name="Sit" type="Node" parent="StateMachine"]
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Idle" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Landing" method="_on_AnimationPlayer_animation_finished"]

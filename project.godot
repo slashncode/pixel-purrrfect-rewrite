@@ -39,6 +39,7 @@ _global_script_class_icons={
 [application]
 
 config/name="State Machine Test"
+run/main_scene="res://scenes/SceneManager.tscn"
 config/icon="res://icon.png"
 
 [autoload]

@@ -17,6 +17,7 @@ func _enter_tree() -> void:
 func _exit_tree() -> void:
 	Events.disconnect("stamina_changed", self, "_on_score_changed")
 
+
 func _on_score_changed(value):
 	if player.WALLGRAB_TIMER != 0:
 		stamina = floor(float(value) / MAX_STAMINA * 100)

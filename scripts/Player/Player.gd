@@ -28,7 +28,7 @@ var INITIAL_WALLGRAP_TO_JUMP := WALLGRAB_TO_JUMP
 # Horizontal speed acceleration mid-air in pixels per second
 export var AIR_ACCEL := 5
 # Max horizontal speed mid-air in pixels per second
-export var MAX_SPEED_MIDAIR := 110
+export var MAX_SPEED_MIDAIR := 170
 var INITIAL_MAX_SPEED_MIDAIR := MAX_SPEED_MIDAIR
 # Time for player to press jump before landing to immediately jump again in seconds
 var JUMP_AGAIN_AFTER_LANDING := 0.2
@@ -63,12 +63,12 @@ func _physics_process(_delta: float) -> void:
 	if anim_cur == "IdleSit" and anim_nxt == "IdleSit":
 		$AnimationPlayer.play("IdleSit")
 		
-	if anim_cur != "IdleLiedown" && $Camera2D.zoom.x != 0.5:
+	if anim_cur != "IdleLiedown" && $Camera2D.zoom.x != 1:
 		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 1, 0.05)
 		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 1, 0.05)
 	elif anim_cur == "IdleLiedown":
-		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 0.2, 0.01)
-		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 0.2, 0.01)
+		$Camera2D.zoom.x = lerp($Camera2D.zoom.x, 0.4, 0.01)
+		$Camera2D.zoom.y = lerp($Camera2D.zoom.y, 0.4, 0.01)
 		
 	
 	if anim_cur != anim_nxt:

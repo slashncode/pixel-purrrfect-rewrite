@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://scenes/player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilemap/Terrain (32x32).png" type="Texture" id=2]
 [ext_resource path="res://pickups/Coin.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/Control.tscn" type="PackedScene" id=4]
@@ -276,7 +276,7 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 9.55258, 0, 9.94019 )
 1/shapes = [  ]
 1/z_index = 0
 
-[node name="Node2D" type="Node2D"]
+[node name="Level02" type="Node2D"]
 
 [node name="HUD CanvasLayer" type="CanvasLayer" parent="."]
 
