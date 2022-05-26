@@ -29,7 +29,7 @@ func physics_update(_delta: float) -> void:
 		player.JUMPED_FROM_WALL = false
 		state_machine.transition_to("Jump")
 	
-	player.WALLGRAB_TIMER -= 1
+	player.WALLGRAB_TIMER -= 2
 	Events.emit_signal("stamina_changed", player.WALLGRAB_TIMER)
 		
 	return
