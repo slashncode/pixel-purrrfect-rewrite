@@ -122,3 +122,8 @@ func _physics_process(_delta: float) -> void:
 		
 	#label.text = fsm.state.name
 	pass
+
+
+func _on_Area2D_body_entered(body):
+	position.x = 539
+	position.y = 421
