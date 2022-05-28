@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Game Over 8 Bit 2.mp3-3fb95fe477e55a66f49ff6b451f20813.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/game-over-8-bit-2022-03-31-17-09-21-utc/Game Over 8 Bit 2/Game Over 8 Bit 2.mp3"
+dest_files=[ "res://.import/Game Over 8 Bit 2.mp3-3fb95fe477e55a66f49ff6b451f20813.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

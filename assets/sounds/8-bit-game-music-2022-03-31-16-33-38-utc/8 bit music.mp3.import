@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8 bit music.mp3-28228466f0c31a704837dbbf8f1b93bb.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/8-bit-game-music-2022-03-31-16-33-38-utc/8 bit music.mp3"
+dest_files=[ "res://.import/8 bit music.mp3-28228466f0c31a704837dbbf8f1b93bb.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

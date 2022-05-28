@@ -1,6 +1,6 @@
 extends MarginContainer
 
-const first_level = "res://scenes/Levels/Level01.tscn"
+const first_level = "res://scenes/Levels/Level03.tscn"
 const credits = "res://scenes/Menu/Credits.tscn"
 
 onready var selector_one = $CenterContainer/VBoxContainer/CenterContainer2/VBoxContainer/CenterContainer/HBoxContainer/Selector

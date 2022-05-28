@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Game Over 8 Bit 2.wav-48d60c2e3ebf93795f0267b9325f2d36.sample"
+
+[deps]
+
+source_file="res://assets/sounds/game-over-8-bit-2022-03-31-17-09-21-utc/Game Over 8 Bit 2/Game Over 8 Bit 2.wav"
+dest_files=[ "res://.import/Game Over 8 Bit 2.wav-48d60c2e3ebf93795f0267b9325f2d36.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
