@@ -12,4 +12,4 @@ exports/
 data_*/
 
 #krita backup files
-.kra~
+*~
