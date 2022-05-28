@@ -127,8 +127,14 @@ func _physics_process(_delta: float) -> void:
 	#label.text = fsm.state.name
 	pass
 
+func _enter_tree() -> void:
+	# warning-ignore:return_value_discarded
+	Events.connect("deathzone_entered", self, "_on_deathzone_entered")
 
-func _on_Area2D_body_entered(body):
+func _exit_tree() -> void:
+	Events.disconnect("deathzone_entered", self, "_on_deathzone_entered")
+
+func _on_deathzone_entered():
 	position.x = 539
 	position.y = 421
 	hearts -= 1
