@@ -24,6 +24,8 @@ var INITIAL_TIME_TO_WALLGRAB = TIME_TO_WALLGRAB
 var JUMPED_FROM_WALL := false
 var WALLGRAB_TO_JUMP := 16
 var INITIAL_WALLGRAP_TO_JUMP := WALLGRAB_TO_JUMP
+# Set player lifes
+var hearts = 7
 
 # Horizontal speed acceleration mid-air in pixels per second
 export var AIR_ACCEL := 5
@@ -56,6 +58,8 @@ onready var fsm := $StateMachine
 var lastTimeToWallgrab = TIME_TO_WALLGRAB
 
 func _physics_process(_delta: float) -> void:
+	if hearts <= 0:
+		get_tree().quit()
 	
 	if anim_cur == "Idle" and anim_nxt == "Idle":
 		$AnimationPlayer.play("Idle")
@@ -127,3 +131,5 @@ func _physics_process(_delta: float) -> void:
 func _on_Area2D_body_entered(body):
 	position.x = 539
 	position.y = 421
+	hearts -= 1
+	Events.emit_signal("hearts_changed", hearts)
