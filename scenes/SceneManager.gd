@@ -2,6 +2,7 @@ extends Node2D
 
 onready var _transition_rect := $FadeTransitionScreen
 onready var _anim_player := $FadeTransitionScreen/AnimationPlayer
+onready var audiostreamplayer := $AudioStreamPlayer2D
 
 export(String, FILE, "*.tscn") var next_scene_path
 
@@ -25,3 +26,6 @@ func _on_scene_changed(scenePath := next_scene_path) -> void:
 	get_node("CurrentScene").add_child(next_level)
 	
 	_anim_player.play("fade_to_normal")
+	
+func _ready():
+	audiostreamplayer.play()

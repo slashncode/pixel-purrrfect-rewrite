@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/StateMachine.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/stamina_full.png" type="Texture" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://scripts/Player/Player.gd" type="Script" id=23]
 [ext_resource path="res://scripts/Player/Landing.gd" type="Script" id=24]
 [ext_resource path="res://scripts/Player/Sit.gd" type="Script" id=25]
+[ext_resource path="res://assets/sounds/game-jump-pack-2022-03-31-00-03-41-utc/Arcade Charater Jump 10.wav" type="AudioStream" id=26]
 
 [sub_resource type="Animation" id=19]
 resource_name = "Attack"
@@ -1031,6 +1032,10 @@ script = ExtResource( 18 )
 
 [node name="Sit" type="Node" parent="StateMachine"]
 script = ExtResource( 25 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 26 )
+volume_db = -10.0
 
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Idle" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="StateMachine/Landing" method="_on_AnimationPlayer_animation_finished"]

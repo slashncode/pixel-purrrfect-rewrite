@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Arcade Charater Jump 14.wav-9e73c6d2137fc0661bcc7e525af26a02.sample"
+
+[deps]
+
+source_file="res://assets/sounds/game-jump-pack-2022-03-31-00-03-41-utc/Arcade Charater Jump 14.wav"
+dest_files=[ "res://.import/Arcade Charater Jump 14.wav-9e73c6d2137fc0661bcc7e525af26a02.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

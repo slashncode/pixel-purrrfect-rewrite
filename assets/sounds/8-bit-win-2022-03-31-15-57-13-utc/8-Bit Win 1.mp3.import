@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8-Bit Win 1.mp3-085728693ba534d3defbb9f27eaf60fd.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/8-bit-win-2022-03-31-15-57-13-utc/8-Bit Win 1.mp3"
+dest_files=[ "res://.import/8-Bit Win 1.mp3-085728693ba534d3defbb9f27eaf60fd.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

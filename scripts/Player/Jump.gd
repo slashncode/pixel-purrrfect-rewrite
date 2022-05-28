@@ -6,6 +6,7 @@ func enter(_msg := {}) -> void:
 	player.velocity.y = -player.JUMP_IMPULSE
 	keypress_timer = 0.2
 	player.anim_nxt = "Jump"
+	player.audiostreamplayer.play()
 		
 func physics_update(delta: float) -> void:
 	if base_jump( delta ):

@@ -54,10 +54,14 @@ var is_invulnerable := false
 var invulnerable_timer := 0.0
 
 onready var fsm := $StateMachine
+onready var audiostreamplayer := $AudioStreamPlayer
 
 var lastTimeToWallgrab = TIME_TO_WALLGRAB
 
 func _physics_process(_delta: float) -> void:
+	if Input.is_action_just_pressed("pause"):
+		Events.emit_signal("pause_menu", true)
+	
 	if hearts <= 0:
 		get_tree().quit()
 	
