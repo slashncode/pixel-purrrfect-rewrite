@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilemap/Terrain (32x32).png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://pickups/Tuna.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/Background/ground.png" type="Texture" id=8]
 [ext_resource path="res://assets/Background/wolken1800x360.png" type="Texture" id=9]
+[ext_resource path="res://assets/Background/wollknäuel.png" type="Texture" id=10]
+[ext_resource path="res://scenes/Levels/DeathZone.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -361,6 +363,7 @@ editor_draw_drag_margin = true
 [node name="Background" type="Node" parent="."]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="Background"]
+layer = -1
 
 [node name="ParallaxGround" type="ParallaxLayer" parent="Background/ParallaxBackground"]
 motion_scale = Vector2( 0.5, 1 )
@@ -376,6 +379,13 @@ motion_scale = Vector2( 0.4, 1 )
 [node name="Sprite" type="Sprite" parent="Background/ParallaxBackground/ParallaxClouds"]
 position = Vector2( 919, 189 )
 texture = ExtResource( 9 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Background"]
+layer = -2
+
+[node name="Sprite" type="Sprite" parent="Background/CanvasLayer"]
+position = Vector2( 320, 180 )
+texture = ExtResource( 10 )
 
 [node name="Sky" type="ParallaxBackground" parent="Background"]
 layer = -101
@@ -424,9 +434,10 @@ margin_bottom = 1329.0
 color = Color( 0, 0, 0, 1 )
 
 [node name="DeathZone" type="Area2D" parent="Background"]
+script = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DeathZone"]
 position = Vector2( 1586.25, 772 )
 shape = SubResource( 38 )
 
-[connection signal="body_entered" from="Background/DeathZone" to="Player" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Background/DeathZone" to="Background/DeathZone" method="_on_DeathZone_body_entered"]
