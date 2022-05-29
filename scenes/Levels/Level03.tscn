@@ -300,7 +300,7 @@ colors = PoolColorArray( 0, 0, 0, 1, 0, 0, 0, 0 )
 gradient = SubResource( 37 )
 
 [sub_resource type="RectangleShape2D" id=45]
-extents = Vector2( 4240.75, 108 )
+extents = Vector2( 4921.75, 108 )
 
 [node name="Level03" type="Node2D"]
 
@@ -478,7 +478,7 @@ z_index = -2
 
 [node name="ColorRect" type="ColorRect" parent="Background/Node2D"]
 margin_top = 496.0
-margin_right = 3173.0
+margin_right = 3808.0
 margin_bottom = 855.0
 rect_scale = Vector2( 2.61275, 2.75492 )
 color = Color( 0.67451, 0.8, 0.443137, 1 )
@@ -503,7 +503,7 @@ position = Vector2( -9, 352 )
 script = ExtResource( 12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Background/DeathZone"]
-position = Vector2( 4240.25, 772 )
+position = Vector2( 4921.25, 772 )
 shape = SubResource( 45 )
 
 [node name="Sign4" parent="." instance=ExtResource( 8 )]
