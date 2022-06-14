@@ -54,7 +54,7 @@ var is_invulnerable := false
 var invulnerable_timer := 0.0
 
 onready var fsm := $StateMachine
-onready var audiostreamplayer := $AudioStreamPlayer
+onready var audiostreamplayer := $RandomAudioStreamPlayer2D
 
 var lastTimeToWallgrab = TIME_TO_WALLGRAB
 

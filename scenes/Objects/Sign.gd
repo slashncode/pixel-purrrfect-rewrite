@@ -10,6 +10,7 @@ onready var control = $Control
 func _ready():
 	control.visible = false
 	label.text = sign_text
+	$AnimationPlayer.play("SignWobble")
 
 
 func _on_Area2D_body_entered(body):
