@@ -522,8 +522,8 @@ scale = Vector2( 1, 0.93971 )
 sign_text = "Try to find all the tuna"
 
 [node name="Sign4" parent="Signs" instance=ExtResource( 8 )]
-position = Vector2( 8185, 511 )
-sign_text = "Yeah! You won! Meow!"
+position = Vector2( 8181, 511 )
+sign_text = "Yeah! You won! Meow! Can you find all 30 Snackies?"
 
 [node name="Trees" type="Node" parent="."]
 
