@@ -26,6 +26,3 @@ func _on_scene_changed(scenePath := next_scene_path) -> void:
 	get_node("CurrentScene").add_child(next_level)
 	
 	_anim_player.play("fade_to_normal")
-	
-func _ready():
-	audiostreamplayer.play()
