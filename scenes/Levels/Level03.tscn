@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/Player/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/tilemap/Terrain (32x32).png" type="Texture" id=2]
@@ -19,8 +19,6 @@
 [ext_resource path="res://assets/objects/blume2.png" type="Texture" id=17]
 [ext_resource path="res://assets/objects/blume1.png" type="Texture" id=18]
 [ext_resource path="res://assets/objects/busch1.png" type="Texture" id=19]
-[ext_resource path="res://pickups/Tuna.gd" type="Script" id=20]
-[ext_resource path="res://pickups/Coin.gd" type="Script" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=19]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -335,101 +333,77 @@ script = ExtResource( 6 )
 source_tilemap = NodePath("../Objects")
 mapping = "res://pickups/objects.json"
 
-[node name="Coin" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 2172, -108 )
-script = ExtResource( 21 )
 
-[node name="Coin2" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin2" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 5244, -60 )
-script = ExtResource( 21 )
 
-[node name="Coin3" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin3" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 2724, -12 )
-script = ExtResource( 21 )
 
-[node name="Coin4" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin4" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 3204, -12 )
-script = ExtResource( 21 )
 
-[node name="Coin5" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin5" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 2292, 12 )
-script = ExtResource( 21 )
 
-[node name="Coin6" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin6" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 276, 108 )
-script = ExtResource( 21 )
 
-[node name="Coin7" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin7" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 1548, 108 )
-script = ExtResource( 21 )
 
-[node name="Tuna" type="Area2D" parent="TileSpawner" instance=ExtResource( 7 )]
+[node name="Tuna" parent="TileSpawner" instance=ExtResource( 7 )]
 position = Vector2( 6684, 132 )
-script = ExtResource( 20 )
 
-[node name="Coin8" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin8" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 1380, 180 )
-script = ExtResource( 21 )
 
-[node name="Coin9" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin9" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 3444, 180 )
-script = ExtResource( 21 )
 
-[node name="Coin10" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin10" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 2100, 204 )
-script = ExtResource( 21 )
 
-[node name="Coin11" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin11" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 6036, 276 )
-script = ExtResource( 21 )
 
-[node name="Coin12" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin12" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 4260, 300 )
-script = ExtResource( 21 )
 
-[node name="Coin13" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin13" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 4860, 300 )
-script = ExtResource( 21 )
 
-[node name="Coin14" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin14" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 7812, 324 )
-script = ExtResource( 21 )
 
-[node name="Coin15" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin15" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 7212, 396 )
-script = ExtResource( 21 )
 
-[node name="Coin16" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin16" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 2988, 444 )
-script = ExtResource( 21 )
 
-[node name="Coin17" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin17" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 7068, 468 )
-script = ExtResource( 21 )
 
-[node name="Coin18" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin18" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 1404, 492 )
-script = ExtResource( 21 )
 
-[node name="Coin19" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin19" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 5412, 492 )
-script = ExtResource( 21 )
 
-[node name="Tuna2" type="Area2D" parent="TileSpawner" instance=ExtResource( 7 )]
+[node name="Tuna2" parent="TileSpawner" instance=ExtResource( 7 )]
 position = Vector2( 4764, 564 )
-script = ExtResource( 20 )
 
-[node name="Coin20" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin20" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 4020, 612 )
-script = ExtResource( 21 )
 
-[node name="Coin21" type="Area2D" parent="TileSpawner" instance=ExtResource( 3 )]
+[node name="Coin21" parent="TileSpawner" instance=ExtResource( 3 )]
 position = Vector2( 6204, 612 )
-script = ExtResource( 21 )
 
-[node name="Tuna3" type="Area2D" parent="TileSpawner" instance=ExtResource( 7 )]
+[node name="Tuna3" parent="TileSpawner" instance=ExtResource( 7 )]
 position = Vector2( 6756, 852 )
-script = ExtResource( 20 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 455, 241 )
@@ -702,7 +676,8 @@ z_index = -1
 texture = ExtResource( 18 )
 
 [node name="bush1_1" type="Sprite" parent="Plants"]
-position = Vector2( 391, 432 )
+position = Vector2( 391, 416 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 19 )
 
 [node name="bush1_2" type="Sprite" parent="Plants"]
@@ -715,7 +690,8 @@ position = Vector2( 4653, 208 )
 texture = ExtResource( 19 )
 
 [node name="bush1_4" type="Sprite" parent="Plants"]
-position = Vector2( 3871, 336 )
+position = Vector2( 3886, 321 )
+scale = Vector2( 2, 2 )
 z_index = -1
 texture = ExtResource( 19 )
 
@@ -725,7 +701,8 @@ z_index = -1
 texture = ExtResource( 19 )
 
 [node name="bush1_6" type="Sprite" parent="Plants"]
-position = Vector2( 2257, 432 )
+position = Vector2( 2266, 416 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 19 )
 
 [node name="bush1_7" type="Sprite" parent="Plants"]
@@ -734,7 +711,8 @@ z_index = -1
 texture = ExtResource( 19 )
 
 [node name="bush1_8" type="Sprite" parent="Plants"]
-position = Vector2( 1076, 368 )
+position = Vector2( 1097, 352 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 19 )
 
 [node name="bush2_1" type="Sprite" parent="Plants"]
@@ -743,7 +721,8 @@ z_index = -2
 texture = ExtResource( 16 )
 
 [node name="bush2_2" type="Sprite" parent="Plants"]
-position = Vector2( 8077, 530 )
+position = Vector2( 8064, 515 )
+scale = Vector2( 2, 2 )
 z_index = -2
 texture = ExtResource( 16 )
 
@@ -758,7 +737,8 @@ z_index = -2
 texture = ExtResource( 16 )
 
 [node name="bush2_5" type="Sprite" parent="Plants"]
-position = Vector2( 3760, 368 )
+position = Vector2( 3760, 352 )
+scale = Vector2( 2, 2 )
 texture = ExtResource( 16 )
 
 [node name="bush2_6" type="Sprite" parent="Plants"]
@@ -767,7 +747,8 @@ z_index = -2
 texture = ExtResource( 16 )
 
 [node name="bush2_7" type="Sprite" parent="Plants"]
-position = Vector2( 1843, 433 )
+position = Vector2( 1843, 418 )
+scale = Vector2( 2, 2 )
 z_index = -2
 texture = ExtResource( 16 )
 
@@ -823,28 +804,4 @@ scale = Vector2( -1, 1 )
 z_index = -1
 texture = ExtResource( 17 )
 
-[connection signal="body_entered" from="TileSpawner/Coin" to="TileSpawner/Coin" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin2" to="TileSpawner/Coin2" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin3" to="TileSpawner/Coin3" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin4" to="TileSpawner/Coin4" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin5" to="TileSpawner/Coin5" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin6" to="TileSpawner/Coin6" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin7" to="TileSpawner/Coin7" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Tuna" to="TileSpawner/Tuna" method="_on_Tuna_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin8" to="TileSpawner/Coin8" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin9" to="TileSpawner/Coin9" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin10" to="TileSpawner/Coin10" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin11" to="TileSpawner/Coin11" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin12" to="TileSpawner/Coin12" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin13" to="TileSpawner/Coin13" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin14" to="TileSpawner/Coin14" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin15" to="TileSpawner/Coin15" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin16" to="TileSpawner/Coin16" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin17" to="TileSpawner/Coin17" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin18" to="TileSpawner/Coin18" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin19" to="TileSpawner/Coin19" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Tuna2" to="TileSpawner/Tuna2" method="_on_Tuna_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin20" to="TileSpawner/Coin20" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Coin21" to="TileSpawner/Coin21" method="_on_Coin_body_entered"]
-[connection signal="body_entered" from="TileSpawner/Tuna3" to="TileSpawner/Tuna3" method="_on_Tuna_body_entered"]
 [connection signal="body_entered" from="Background/DeathZone" to="Background/DeathZone" method="_on_DeathZone_body_entered"]
